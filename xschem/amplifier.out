@@ -1,0 +1,30 @@
+
+No compatibility mode selected!
+
+warning, can't find model 'mmbt2222' from line
+    q1 out net1 outv2 mmbt2222 area=1 m=1
+
+Circuit: ** sch_path: /home/ilker/projects/openiceda/project/xschem/amplifier.sch
+
+Error on line 15 :
+  q1 out net1 outv2 mmbt2222 area=1 m=1
+could not find a valid modelname
+    Simulation interrupted due to error!
+
+Error: circuit not parsed.
+
+Note: no resource usage information for 'time',
+	or no active circuit available
+
+Total elapsed time (seconds) = 12.368 
+
+Total DRAM available = 39815.906 MB.
+DRAM currently available = 33660.914 MB.
+Maximum ngspice program size =  676.848 MB.
+Current ngspice program size =  664.910 MB.
+
+Shared ngspice pages =   10.254 MB.
+Text (code) pages =    5.332 MB.
+Stack = 0 bytes.
+Library pages =  654.934 MB.
+

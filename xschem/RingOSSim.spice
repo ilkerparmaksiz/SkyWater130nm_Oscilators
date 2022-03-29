@@ -1,0 +1,86 @@
+** sch_path: /home/ilker/Projects/OpenICEDA/Project/xschem/RingOSSim.sch
+**.subckt RingOSSim VOP VON vctrl
+*.opin VOP
+*.opin VON
+*.ipin vctrl
+X1 vctrl net2 VOP VON net1 GND RingOslHw
+V2 net1 GND 1.8
+V3 net2 GND 1
+V1 vctrl GND 1.0
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/ilker/Projects/OpenICEDA/src/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+* this option enables mos model bin
+* selection based on W/NF instead of W
+.option wnflag=1
+*.option savecurrents
+.control
+tran 0.01n 20n
+plot v(VON)
+plot v(VOP)
+plot v(VON) v(vctrl) v(VOP)
+op
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  RingOslHw.sym # of pins=6
+** sym_path: /home/ilker/Projects/OpenICEDA/Project/xschem/RingOslHw.sym
+** sch_path: /home/ilker/Projects/OpenICEDA/Project/xschem/RingOslHw.sch
+.subckt RingOslHw  VCTRL PD VOP VON VCC VSS
+*.ipin PD
+*.ipin VCTRL
+*.iopin VCC
+*.iopin VSS
+*.opin VON
+*.opin VOP
+X2 VCC VSS net4 net3 VCTRL PD VOP VON VCC VSS net4 net3 VCTRL PD VOP VON inverterblock
+X1 VCC VSS net2 net1 VCTRL PD net3 net4 VCC VSS net2 net1 VCTRL PD net3 net4 inverterblock
+X3 VCC VSS VON VOP VCTRL PD net1 net2 VCC VSS VON VOP VCTRL PD net1 net2 inverterblock
+.ends
+
+
+* expanding   symbol:  inverterblock.sym # of pins=16
+** sym_path: /home/ilker/Projects/OpenICEDA/Project/xschem/inverterblock.sym
+** sch_path: /home/ilker/Projects/OpenICEDA/Project/xschem/inverterblock.sch
+.subckt inverterblock  VCC VSS VON VOP VCTRL PD VIN VIP VCC VSS VON VOP VCTRL PD VIN VIP
+*.ipin VIP
+*.opin VON
+*.opin VOP
+*.ipin PD
+*.iopin VSS
+*.ipin VIN
+*.ipin VCTRL
+*.iopin VCC
+*.ipin VCTRL
+XM9 net1 PD VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM10 VON VCTRL VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 VON VOP VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 VOP VON VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 VOP VCTRL VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 VON VIP net1 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM7 VOP VIN net1 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.end

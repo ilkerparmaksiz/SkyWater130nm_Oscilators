@@ -1,0 +1,48 @@
+** sch_path: /home/ilker/Projects/OpenICEDA/Project/xschem/amplifier.sch
+**.subckt amplifier out vvs vg vd Vin Vin
+*.opin out
+*.opin vvs
+*.opin vg
+*.opin vd
+*.ipin Vin
+*.ipin Vin
+XM2 vd vg vvs GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=5 m=5
+vcc VDD GND 1.8
+Vin Vin GND pulse(-200m 200m 1ns 1ns 1ns 50ns 100ns)
+R1 VDD vg 100k m=1
+R2 vg GND 100k m=1
+R3 VDD vd 200k m=1
+R4 vvs GND 1k m=1
+C1 vvs GND 1p m=1
+C3 out vd 1p m=1
+C2 vg Vin 1p m=1
+Vin3 __UNCONNECTED_PIN__0 GND SIN(-200m 200m 2000000 0 0)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/ilker/Projects/OpenICEDA/src/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+* this option enables mos model bin
+* selection based on W/NF instead of W
+.option wnflag=1
+*.option savecurrents
+.control
+tran 0.01n 1us
+plot v(vg) vs v(vd)
+plot v(vg) vs v(vvs)
+plot v(vvs) vs v(vd)
+plot v(out) v(vg)
+plot v(Vin) v(out)
+op
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

@@ -1,0 +1,40 @@
+
+No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/ilker/projects/openiceda/project/xschem/inverter_tutorial_trans.sch
+
+binary raw file "/home/ilker/Projects/OpenICEDA/Project/xschem/simulation/inverter_tutorial_trans.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: vin: no DC value, transient time 0 value used
+No. of Data Columns : 12  
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+out                                        1.8
+vin                                          0
+vdd                                        1.8
+vin#branch                                   0
+vdd#branch                        -2.03659e-12
+
+
+No. of Data Rows : 101208
+
+Total analysis time (seconds) = 0.659
+
+Total elapsed time (seconds) = 9.265 
+
+Total DRAM available = 39815.906 MB.
+DRAM currently available = 32636.762 MB.
+Maximum ngspice program size =  684.867 MB.
+Current ngspice program size =  665.516 MB.
+
+Shared ngspice pages =   10.605 MB.
+Text (code) pages =    5.332 MB.
+Stack = 0 bytes.
+Library pages =  662.949 MB.
+

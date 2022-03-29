@@ -1,0 +1,65 @@
+** sch_path: /home/ilker/Projects/OpenICEDA/Project/xschem/RingOslHw.sch
+**.subckt RingOslHw VCC VCC
+*.iopin VCC
+*.iopin VCC
+X2 ?1 net1 ?1 net2 ?1 __UNCONNECTED_PIN__0 ?1 __UNCONNECTED_PIN__1 ?1 __UNCONNECTED_PIN__2 ?1 __UNCONNECTED_PIN__3 ?1 __UNCONNECTED_PIN__4 ?1 __UNCONNECTED_PIN__5  ?1 net1  inverterblock
+**** end_element
+**.ends
+
+* expanding   symbol:  inverterblock.sym # of pins=8
+** sym_path: /home/ilker/Projects/OpenICEDA/Project/xschem/inverterblock.sym
+** sch_path: /home/ilker/Projects/OpenICEDA/Project/xschem/inverterblock.sch
+.subckt inverterblock  VCC VSS VON VOP VCTRL PD VIN VIP  VCC  
+*.ipin VIP
+*.opin VON
+*.opin VOP
+*.ipin PD
+*.iopin VSS
+*.ipin VIN
+*.ipin VCTRL
+*.iopin VCC
+**** spice_prefix X
+M9 ?1 net5 ?1 PD ?1 net4 ?1 net3  sky130_fd_pr__nfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+**** spice_prefix X
+M10 ?1 VON ?1 VCTRL ?1 net1 ?1 net1  sky130_fd_pr__pfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+**** spice_prefix X
+M3 ?1 VON ?1 net2 ?1 net1 ?1 net1  sky130_fd_pr__pfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+**** spice_prefix X
+M4 ?1 net2 ?1 VON ?1 net1 ?1 net1  sky130_fd_pr__pfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+**** spice_prefix X
+M5 ?1 net2 ?1 VCTRL ?1 net1 ?1 net1  sky130_fd_pr__pfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+**** spice_prefix X
+M6 ?1 VON ?1 VIP ?1 net5 ?1 net3  sky130_fd_pr__nfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+**** spice_prefix X
+M7 ?1 net2 ?1 VIN ?1 net5 ?1 net3  sky130_fd_pr__nfet_01v8 L=0.15 W=1
++ nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 
++ mult=1 m=1
+**** end_element
+.ends
+
+.end

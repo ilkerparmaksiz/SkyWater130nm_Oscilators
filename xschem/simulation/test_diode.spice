@@ -1,0 +1,30 @@
+** sch_path:
+*+ /home/ilker/Projects/OpenICEDA/src/open_pdks/sky130/sky130A/libs.tech/xschem/sky130_tests/test_diode.sch
+**.subckt test_diode
+I1 net1 0 0
+Vk1 net1 K1 0
+.save  i(vk1)
+D1 0 K1 sky130_fd_pr__diode_pw2nd_05v5 area=1e12
+Vk2 net2 K2 0
+.save  i(vk2)
+D2 0 K2 sky130_fd_pr__diode_pw2nd_11v0 area=1e12
+F1 0 net2 vk1 1
+**** begin user architecture code
+
+
+.control
+save all
+dc i1 0 50u 0.1u
+plot k1 k2
+
+.endc
+
+
+
+** opencircuitdesign pdks install
+.lib /home/ilker/Projects/OpenICEDA/src/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+**** end user architecture code
+**.ends
+.end

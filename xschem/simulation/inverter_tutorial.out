@@ -1,0 +1,27 @@
+
+No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/ilker/projects/openiceda/project/xschem/inverter_tutorial.sch
+
+binary raw file "/home/ilker/Projects/OpenICEDA/Project/xschem/simulation/inverter_tutorial.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+No. of Data Columns : 12  
+
+No. of Data Rows : 181
+
+Total analysis time (seconds) = 0.002
+
+Total elapsed time (seconds) = 18.432 
+
+Total DRAM available = 39815.906 MB.
+DRAM currently available = 32877.266 MB.
+Maximum ngspice program size =  684.891 MB.
+Current ngspice program size =  665.262 MB.
+
+Shared ngspice pages =   10.328 MB.
+Text (code) pages =    5.332 MB.
+Stack = 0 bytes.
+Library pages =  662.973 MB.
+
